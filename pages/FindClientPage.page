@@ -1,0 +1,44 @@
+<apex:page controller="FindController">
+    <style>
+        body {
+            font-size: 18px;
+        }
+        .small-input {
+            width: 250px;
+        }
+
+        .small-label {
+            width: 150px;
+            display: inline-block;
+            text-align: right;
+            padding-right: 5px;
+        }
+        
+        .size-button {
+            width: 150px;
+            height: 30px;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Търсене по:">
+            <apex:pageBlockSection columns="10">
+                <apex:pageBlockSectionItem >
+                    <div class="small-label">Град:</div>
+                    <apex:inputText value="{!sterm}" styleClass="small-input"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Търси" action="{!findClient}" styleClass="size-button"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockTable value="{!clients}" var="c">
+                <apex:column headerValue="Име" value="{!c.first_name__c}"/>
+                <apex:column headerValue="Фамилия" value="{!c.last_name__c}"/>
+                <apex:column headerValue="Град" value="{!c.city__c}"/>
+                <apex:column headerValue="Имейл" value="{!c.email__c}"/>
+                <apex:column headerValue="Тел." value="{!c.phone__c}"/>
+                <apex:column headerValue="Предпочитана категория" value="{!c.preffered_catagory__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

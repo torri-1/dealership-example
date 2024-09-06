@@ -1,0 +1,19 @@
+<apex:page controller="CarController">
+    <style>
+        body {
+            font-size: 18px;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Визуализиране на коли">
+            <apex:pageBlockTable value="{!allCars}" var="c">
+                <apex:column headerValue="Марка" value="{!c.make__c}"/>
+                <apex:column headerValue="Модел" value="{!c.model__c}"/>
+                <apex:column headerValue="Цвят" value="{!c.color__c}"/>
+                <apex:column headerValue="Цена" value="{!c.price__c}"/>
+                <apex:column headerValue="Година" value="{!c.year__c}"/>
+                <apex:column headerValue="Категория" value="{!c.category__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

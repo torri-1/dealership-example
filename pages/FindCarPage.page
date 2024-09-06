@@ -1,0 +1,44 @@
+<apex:page controller="FindController">
+    <style>
+        body {
+            font-size: 18px;
+        }
+        .small-input {
+            width: 250px;
+        }
+
+        .small-label {
+            width: 350px;
+            display: inline-block;
+            text-align: right;
+            padding-right: 5px;
+        }
+        
+        .size-button {
+            width: 150px;
+            height: 30px;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Търсене на коли по:">
+            <apex:pageBlockSection columns="100">
+                <apex:pageBlockSectionItem >
+                    <div class="small-label">Ключова дума(марка/модел):</div>
+                    <apex:inputText value="{!sterm}" styleClass="small-input"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Търси" action="{!findCar}" styleClass="size-button"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockTable value="{!cars}" var="c">
+                <apex:column headerValue="Марка" value="{!c.make__c}"/>
+                <apex:column headerValue="Модел" value="{!c.model__c}"/>
+                <apex:column headerValue="Цвят" value="{!c.color__c}"/>
+                <apex:column headerValue="Цена" value="{!c.price__c}"/>
+                <apex:column headerValue="Година" value="{!c.year__c}"/>
+                <apex:column headerValue="Категория" value="{!c.category__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

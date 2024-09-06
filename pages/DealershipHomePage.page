@@ -1,0 +1,51 @@
+<apex:page controller="DealershipHomeController">
+    <style>
+        body {
+            font-size: 20px;
+        }
+
+        .button {
+            width: 150px; 
+            height: 40px;
+        }
+        .section {
+            width: 40%; 
+            display: flex;
+            vertical-align: bottom; 
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Меню">
+            <div class="section">
+                <apex:pageBlockSection title="Визуализиране:" collapsible="false" columns="3">
+                    <apex:commandButton value="Клиенти" action="{!viewClients}" styleClass="button"/>
+                    <apex:commandButton value="Автомобили" action="{!viewCars}" styleClass="button"/>
+                    <apex:commandButton value="Покупки" action="{!viewPurchases}" styleClass="button"/>
+                </apex:pageBlockSection>
+            </div>
+            <div class="section">
+                <apex:pageBlockSection title="Търсене:" collapsible="false" columns="3">
+                    <apex:commandButton value="Клиент" action="{!findClient}" styleClass="button"/>
+                    <apex:commandButton value="Автомобил" action="{!findCar}" styleClass="button"/>
+                    <apex:commandButton value="Покупка" action="{!findPurchase}" styleClass="button"/>
+                </apex:pageBlockSection>
+            </div>
+            <div class="section">
+                <apex:pageBlockSection title="Добавяне:" collapsible="false" columns="3">
+                    <apex:commandButton value="Клиент" action="{!addClient}" styleClass="button"/>
+                    <apex:commandButton value="Автомобил" action="{!addCar}" styleClass="button"/>
+                    <apex:commandButton value="Покупка" action="{!addPurchase}" styleClass="button"/>
+                </apex:pageBlockSection>
+            </div>
+            <div class="section">
+                <apex:pageBlockSection title="Брошури:" collapsible="false" columns="1">
+                    <apex:commandButton value="Брошури" action="{!brochureView}" styleClass="button"/>
+                </apex:pageBlockSection>
+            </div>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

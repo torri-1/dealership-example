@@ -1,0 +1,30 @@
+<apex:page controller="SendAddController">
+  <style>
+        .small-input {
+            width: 350px;
+        }
+        
+        body {
+            font-size: 18px;
+        }
+
+        .size-button {
+            width: 350px;
+            height: 30px;
+        }
+  </style>  
+  <apex:form >
+      <apex:pageBlock title="Изпращане на Брошури по предпочитана категория:">
+        
+        <apex:pageBlockSection title="Категория:" collapsible="false" columns="1">
+            <apex:pageBlockSectionItem > 
+                <apex:selectList required="true" multiselect="false" size="4" label="Type"  value="{!selected}" styleClass="small-input">
+                    <apex:selectOptions value="{!items}"/>
+                </apex:selectList>
+            </apex:pageBlockSectionItem>
+            <apex:commandButton value="Изпрати" action="{!sendOut}" styleClass="size-button"/>    
+        </apex:pageBlockSection>
+        <apex:pageMessages />
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

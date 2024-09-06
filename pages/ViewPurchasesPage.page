@@ -1,0 +1,24 @@
+<apex:page controller="PurchaseController">
+    <style>
+        body {
+            font-size: 18px;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Визуализиране на покупки">
+            <apex:pageBlockTable value="{!purchases}" var="p">
+                <apex:column headerValue="Клиент" value="{!p.clname}"/>
+                <apex:column headerValue="Имейл" value="{!p.cemail}"/>
+                <apex:column headerValue="Кола" value="{!p.crname}"/>
+                <apex:column headerValue="Оригинална цена" value="{!p.askprice}"/>
+                <apex:column headerValue="Договорена цена" value="{!p.pprice}"/>
+                <apex:column headerValue="Дата на сделка">
+                    <apex:outputText value="{0, DATE, dd'/'MM'/'yyyy}">
+                        <apex:param value="{!p.pdate}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Статус" value="{!p.pstatus}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

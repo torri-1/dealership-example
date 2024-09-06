@@ -1,0 +1,65 @@
+<apex:page controller="CarController">
+  <style>
+         body {
+            font-size: 18px;
+        }
+          
+        .small-input {
+            width: 150px;
+        }
+
+        .small-label {
+            width: 100px;
+            display: inline-block;
+            text-align: right;
+            padding-right: 5px;
+            font-size: 14px;
+        }
+        
+        .size-button {
+            width: 450px;
+            height: 30px;
+        }
+  </style>  
+  <apex:form >
+  <apex:pageBlock title="Добавяне на кола">
+       <apex:pageBlockSection columns="1">
+           <apex:pageBlockSectionItem >
+               <div class="small-label">* Марка:</div>
+               <apex:inputText value="{!make}" styleClass="small-input"/>
+           </apex:pageBlockSectionItem>
+          
+           <apex:pageBlockSectionItem >
+               <div class="small-label">* Модел:</div>
+               <apex:inputText value="{!model}" styleClass="small-input"/>
+           </apex:pageBlockSectionItem>
+          
+           <apex:pageBlockSectionItem >
+               <div class="small-label">Цвят:</div>
+               <apex:inputText value="{!color}" styleClass="small-input"/>
+           </apex:pageBlockSectionItem>
+            
+           <apex:pageBlockSectionItem >
+               <div class="small-label">* Година:</div>
+               <apex:inputText value="{!year}" styleClass="small-input"/>
+           </apex:pageBlockSectionItem>
+            
+           <apex:pageBlockSectionItem >
+               <div class="small-label">* Цена:</div>
+               <apex:inputText value="{!price}" styleClass="small-input"/>
+           </apex:pageBlockSectionItem>
+           
+           <apex:pageBlockSectionItem >
+               <div class="small-label">* Категория:</div>
+               <apex:selectList required="true" multiselect="false" size="1" value="{!category}" styleClass="small-input">
+                   <apex:selectOptions value="{!items}"/>
+               </apex:selectList>
+           </apex:pageBlockSectionItem>
+           
+           <apex:pageBlockSectionItem >
+               <apex:commandButton value="Добави" action="{!addClient}" styleClass="size-button"/>
+           </apex:pageBlockSectionItem>
+       </apex:pageBlockSection> 
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

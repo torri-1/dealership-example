@@ -1,0 +1,19 @@
+<apex:page controller="ClientController">
+    <style>
+        body {
+            font-size: 18px;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Визуализиране на клиенти">
+            <apex:pageBlockTable value="{!allClients}" var="c">
+                <apex:column headerValue="Име" value="{!c.first_name__c}"/>
+                <apex:column headerValue="Фамилия" value="{!c.last_name__c}"/>
+                <apex:column headerValue="Град" value="{!c.city__c}"/>
+                <apex:column headerValue="Имейл" value="{!c.email__c}"/>
+                <apex:column headerValue="Тел." value="{!c.phone__c}"/>
+                <apex:column headerValue="Предпочитана категория" value="{!c.preffered_catagory__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,59 @@
+<apex:page controller="PurchaseController" docType="html-5.0">
+    <style>
+        .small-input {
+            width: 350px;
+        }
+        
+        body {
+            font-size: 18px;
+        }
+
+        .small-label {
+            width: 150px;
+            display: inline-block;
+            text-align: right;
+            padding-right: 5px;
+        }
+
+        .size-button {
+            width: 650px;
+            height: 30px;
+        }
+    </style>  
+    <apex:form >
+        <apex:pageBlock title="Добавяне на покупка">
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <div class="small-label">* Клиент:</div>
+                    <apex:selectList value="{!client}" label="Client" styleClass="small-input">
+                        <apex:selectOptions value="{!clients}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <div class="small-label">* Кола:</div>
+                    <apex:selectList value="{!car}" label="Car" styleClass="small-input">
+                        <apex:selectOptions value="{!cars}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <div class="small-label">Дата на покупка:</div>
+                    <apex:input type="date" value="{!data}" styleClass="small-input"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <div class="small-label">* Договорена цена:</div>
+                    <apex:inputText value="{!price}" styleClass="small-input"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <div class="small-label">* Платежен статус:</div>
+                    <apex:selectList required="true" multiselect="false" size="1" value="{!pstatus}" styleClass="small-input">
+                        <apex:selectOptions value="{!items}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Добави" action="{!addPurchase}" styleClass="size-button"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

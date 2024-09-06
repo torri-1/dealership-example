@@ -1,0 +1,47 @@
+<apex:page controller="FindController">
+    <style>
+        body {
+            font-size: 18px;
+        }
+        .small-input {
+            width: 100px;
+        }
+
+        .small-label {
+            width: 25px;
+            display: inline-block;
+            text-align: right;
+            padding-right: 5px;
+        }
+        
+        .size-button {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Търсене на покупки по:">
+            Договорена цена: <br/>
+            <div class="small-label">от</div>
+            <apex:inputText value="{!fromm}" styleClass="small-input"/>
+            <div class="small-label">до</div>
+            <apex:inputText value="{!tto}" styleClass="small-input"/> 
+            
+            <apex:commandButton value="Търси" action="{!findPurchase}" styleClass="size-button"/>
+            
+            <apex:pageBlockTable value="{!purchases}" var="p">
+                <apex:column headerValue="Клиент" value="{!p.clname}"/>
+                <apex:column headerValue="Имейл" value="{!p.cemail}"/>
+                <apex:column headerValue="Кола" value="{!p.crname}"/>
+                <apex:column headerValue="Оригинална цена" value="{!p.askprice}"/>
+                <apex:column headerValue="Договорена цена" value="{!p.pprice}"/>
+                <apex:column headerValue="Дата на сделка">
+                    <apex:outputText value="{0, DATE, dd'/'MM'/' yyyy}">
+                        <apex:param value="{!p.pdate}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Статус" value="{!p.pstatus}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
